@@ -3,6 +3,8 @@ import { redis } from "./project.config.js";
 /* 使用IORedis模块创建Redis连接 */
 import IORedis from "ioredis";
 export const connection = new IORedis(redis.port, redis.host, {
+  // username: redis.user,
+  password: redis.pass,
   db: redis.db,
   maxRetriesPerRequest: 0,
 });
