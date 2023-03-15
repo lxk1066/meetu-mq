@@ -2,20 +2,18 @@ import nodemailer from "nodemailer";
 import { EmailAccount } from "../project.config.js";
 
 const transporter = nodemailer.createTransport({
-  // host: 'smtp.qq.com',
-  // port: 587,
-  // secureConnection: true,
-  service: EmailAccount.service,
-  secure: true, //  安全的发送模式
+  host: EmailAccount.host,
+  port: EmailAccount.port,
+  // secure: true, //  安全的发送模式
   auth: {
-    user: EmailAccount.user, //  发件人邮箱
-    pass: EmailAccount.pass //  授权码
+    user: EmailAccount.auth.user, //  发件人邮箱
+    pass: EmailAccount.auth.pass //  授权码
   }
 });
 export const sendMail = (subject: string, to: string, text: string) => {
   const message = {
     // 发件人邮箱
-    from: `(Meetu)${EmailAccount.user}`,
+    from: `(Meetu)${EmailAccount.auth.user}`,
     // 邮件标题
     subject,
     // 目标邮箱

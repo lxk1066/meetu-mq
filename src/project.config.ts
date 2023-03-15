@@ -1,9 +1,17 @@
 // 邮箱的配置信息
 export const EmailAccount = {
-  service: "QQ",
-  user: "xxxxxxxx", //  发件人邮箱
-  pass: "xxxxxxxx" //  授权码
+  host: "smtp.yeah.net",
+  port: 25,
+  auth: {
+    user: "xxxxxxxx",
+    pass: "xxxxxxxx"
+  }
 };
+
+// 管理员邮箱
+export const AdminMailbox = [
+  "xxxxxxxx"
+]
 
 // redis的配置信息
 export const redis = {
