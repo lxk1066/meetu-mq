@@ -11,7 +11,7 @@ export const jobFailedFn = (job: Job | undefined, error: Error) => {
     myQueue.add("send-email", {
       subject: "[Meetu服务告警]MQ队列任务失败", to: AdminMailbox[0], text: `
       后台BullMQ队列中, 有一个任务失败的次数已经达到3次, 请前往确认并处理! 错误信息如下: 
-      任务ID: ${job.id}, 任务数据: ${JSON.stringify(job.data)}, 错误信息: ${error}.
+      任务ID: ${job.id}, 任务数据: ${JSON.stringify(job.data)}, 错误信息: ${JSON.stringify(error)}.
     `.trim()
     });
   }
